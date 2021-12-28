@@ -6,6 +6,9 @@ This prototype is a base react native app to implement White Label to show how i
 
 ```
 yarn
+cd ios
+pod install
+cd ..
 ```
 
 ## Running on iOS

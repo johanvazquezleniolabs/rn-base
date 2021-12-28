@@ -6,10 +6,17 @@ This prototype is a base react native app to implement White Label to show how i
 
 ```
 yarn
+```
+
+### - iOS
+```
 cd ios
 pod install
 cd ..
 ```
+>NOTE: To review the native code, open the project in Xcode
+
+
 
 ## Running on iOS
 PurpleParrot app

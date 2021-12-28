@@ -13,15 +13,11 @@ PurpleParrot app
 ```
 npx react-native run-ios --scheme "PurpleParrots"
 ```
-<img src="./assets/home.png" width="128"/>
-<img src="./assets/purple-parrots1.png" width="128"/>
-<img src="./assets/purple-parrots2.png" width="128"/>
+<img src="./assets/home.png" width="128"/> <img src="./assets/purple-parrots1.png" width="128"/> <img src="./assets/purple-parrots2.png" width="128"/>
 
 \
 GreenMonkeys app
 ```
 npx react-native run-ios --scheme "GreenMonkeys"
 ```
-<img src="./assets/home.png" width="128"/>
-<img src="./assets/green-monkeys1.png" width="128"/>
-<img src="./assets/green-monkeys2.png" width="128"/>
+<img src="./assets/home.png" width="128"/> <img src="./assets/green-monkeys1.png" width="128"/> <img src="./assets/green-monkeys2.png" width="128"/>

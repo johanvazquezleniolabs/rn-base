@@ -9,9 +9,9 @@
                     rejecter:(RCTPromiseRejectBlock)reject) {
     NSDictionary *data = @{
       @"appName": [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"],
-      @"primaryColor": @"#fdf6e3",
-      @"primaryTextColor": @"#657b83",
-      @"greetingText": @"Welcome"
+      @"primaryColor": @"#008000",
+      @"primaryTextColor": @"#FFD700",
+      @"greetingText": @"Legends of the Hidden Temple Rules!!!!!"
     };
     resolve(data);
   }

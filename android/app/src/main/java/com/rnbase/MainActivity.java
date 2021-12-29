@@ -1,4 +1,4 @@
-package com.reactnativeemengine;
+package com.rnbase;
 
 import com.facebook.react.ReactActivity;
 

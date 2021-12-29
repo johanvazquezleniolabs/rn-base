@@ -3,6 +3,7 @@ import { SafeAreaView, Text, View, ViewStyle, TextStyle } from 'react-native';
 
 import appStyle from './AppTheme';
 import WhiteLabelConfig from './whitelabel/WhiteLabelConfig';
+import SplashScreen from 'react-native-splash-screen';
 
 function App() {
   const [title, setTitle] = React.useState<string>('');
@@ -26,6 +27,9 @@ function App() {
       setTitle(config.appName);
       setSubTitle(config.greetingText);
     })();
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 2000);
   }, []);
 
   return (

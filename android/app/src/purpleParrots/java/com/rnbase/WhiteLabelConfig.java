@@ -19,7 +19,7 @@ public class WhiteLabelConfig extends ReactContextBaseJavaModule {
         this.appName = reactContext
                 .getApplicationContext()
                 .getResources()
-                .getString(R.string.app_name);
+                .getString(R.string.white_label_app_name);
     }
 
     @Nonnull
@@ -31,10 +31,10 @@ public class WhiteLabelConfig extends ReactContextBaseJavaModule {
     @ReactMethod
     public void getConfig(final Promise promise) {
         WritableMap result = Arguments.createMap();
-        result.putString("appName", this.appName);
-        result.putString("primaryColor", "#fdf6e3");
-        result.putString("primaryTextColor", "#657b83");
-        result.putString("greetingText", "Welcome");
+        result.putString("appName", appName);
+        result.putString("primaryColor", "#800080");
+        result.putString("primaryTextColor", "#FFD700");
+        result.putString("greetingText", "Legends of the Hidden Temple Rules!!!!!");
         promise.resolve(result);
     }
 }

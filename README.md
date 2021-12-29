@@ -1,6 +1,6 @@
 # RN Base with White Label
 
-This prototype is a base react native app to implement White Label to show how it works on RN. This one was built looks like in [this post](https://medium.com/flawless-app-stories/react-native-white-label-101-163c1967c12a).
+This prototype is a base react native app to implement White Label to show how it works on RN. This one was built similar to the explanation in [this post](https://medium.com/flawless-app-stories/react-native-white-label-101-163c1967c12a) and following the react native doc for [android](https://reactnative.dev/docs/native-modules-android) and [ios](https://reactnative.dev/docs/native-modules-ios).
 
 ## Installation
 
@@ -14,7 +14,7 @@ cd ios
 pod install
 cd ..
 ```
->NOTE: To review the native code, open the project in Xcode
+>NOTE: To review easier the native code, open the ios directory with Xcode and android directory with Android Studio
 
 ## Running on iOS
 PurpleParrot app

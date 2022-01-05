@@ -4,6 +4,7 @@ import { SafeAreaView, Text, View, ViewStyle, TextStyle } from 'react-native';
 import appStyle from './AppTheme';
 import WhiteLabelConfig from './whitelabel/WhiteLabelConfig';
 import SplashScreen from 'react-native-splash-screen';
+import PdfViewer from './src/PdfViewer';
 
 function App() {
   const [title, setTitle] = React.useState<string>('');
@@ -33,19 +34,20 @@ function App() {
   }, []);
 
   return (
-    // @ts-ignore
-    <SafeAreaView style={styles.screen}>
-      {/* @ts-ignore */}
-      <Text style={styles.title}>{title} App</Text>
-      {/* @ts-ignore */}
-      <View style={styles.container}>
-        {/* @ts-ignore */}
-        <View style={styles.greeting}>
-          {/* @ts-ignore */}
-          <Text style={styles.greetingText}>{subTitle}</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    // // @ts-ignore
+    // <SafeAreaView style={styles.screen}>
+    //   {/* @ts-ignore */}
+    //   <Text style={styles.title}>{title} App</Text>
+    //   {/* @ts-ignore */}
+    //   <View style={styles.container}>
+    //     {/* @ts-ignore */}
+    //     <View style={styles.greeting}>
+    //       {/* @ts-ignore */}
+    //       <Text style={styles.greetingText}>{subTitle}</Text>
+    //     </View>
+    //   </View>
+    // </SafeAreaView>
+    <PdfViewer />
   );
 }
 

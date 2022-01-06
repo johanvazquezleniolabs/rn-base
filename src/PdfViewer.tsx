@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Text,
+  SafeAreaView,
 } from 'react-native';
 import Pdf from 'react-native-pdf';
 import RNPrint from 'react-native-print';
@@ -52,7 +53,7 @@ export default function WebviewScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Pdf
         source={{
           uri: `data:application/pdf;base64,${pdfBase64}`,
@@ -86,6 +87,6 @@ export default function WebviewScreen() {
           <ActivityIndicator size="large" />
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }

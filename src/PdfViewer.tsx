@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
-import { pdfBase64 } from './source';
 import Pdf from 'react-native-pdf';
 import RNPrint from 'react-native-print';
+import { pdfBase64 } from './source';
 
 const styles = StyleSheet.create({
   container: {

@@ -1,53 +1,28 @@
 import React from 'react';
-import { SafeAreaView, Text, View, ViewStyle, TextStyle } from 'react-native';
-
-import appStyle from './AppTheme';
-import WhiteLabelConfig from './whitelabel/WhiteLabelConfig';
 import SplashScreen from 'react-native-splash-screen';
+import { NavigationContainer, ParamListBase } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './src/Home';
+import DocViewer from './src/DocViewer';
 import PdfViewer from './src/PdfViewer';
 
-function App() {
-  const [title, setTitle] = React.useState<string>('');
-  const [subTitle, setSubTitle] = React.useState<string>('');
-  const [styles, setStyles] = React.useState<
-    | {}
-    | {
-        screen: ViewStyle;
-        title: TextStyle;
-        container: ViewStyle;
-        greeting: ViewStyle;
-        greetingText: TextStyle;
-      }
-  >({});
+const Stack = createNativeStackNavigator<ParamListBase>();
 
+function App() {
   React.useEffect(() => {
-    (async () => {
-      const config = await WhiteLabelConfig.getConfig();
-      const newStyles = appStyle(config);
-      setStyles(newStyles);
-      setTitle(config.appName);
-      setSubTitle(config.greetingText);
-    })();
     setTimeout(() => {
       SplashScreen.hide();
     }, 2000);
   }, []);
 
   return (
-    // // @ts-ignore
-    // <SafeAreaView style={styles.screen}>
-    //   {/* @ts-ignore */}
-    //   <Text style={styles.title}>{title} App</Text>
-    //   {/* @ts-ignore */}
-    //   <View style={styles.container}>
-    //     {/* @ts-ignore */}
-    //     <View style={styles.greeting}>
-    //       {/* @ts-ignore */}
-    //       <Text style={styles.greetingText}>{subTitle}</Text>
-    //     </View>
-    //   </View>
-    // </SafeAreaView>
-    <PdfViewer />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Doc Viewer" component={DocViewer} />
+        <Stack.Screen name="PDF Viewer" component={PdfViewer} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

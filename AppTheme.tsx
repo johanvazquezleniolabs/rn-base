@@ -1,11 +1,21 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
-export default (config: { primaryColor: string; primaryTextColor: string }) =>
+export default (config?: {
+  primaryColor: string;
+  primaryTextColor: string;
+}): {
+  screen: ViewStyle;
+  title: TextStyle;
+  subTitle: TextStyle;
+  container: ViewStyle;
+  button: ViewStyle;
+  buttonLabel: TextStyle;
+} =>
   StyleSheet.create({
     screen: {
       flex: 1,
       justifyContent: 'center',
-      backgroundColor: config.primaryColor,
+      alignItems: 'center',
     },
     title: {
       paddingHorizontal: 16,
@@ -13,20 +23,26 @@ export default (config: { primaryColor: string; primaryTextColor: string }) =>
       fontSize: 20,
       fontWeight: 'bold',
     },
+    subTitle: {
+      paddingHorizontal: 16,
+      color: '#657b83',
+      fontSize: 18,
+      marginTop: 15,
+      marginBottom: 15,
+    },
     container: {
-      paddingTop: 60,
+      paddingTop: 20,
       alignItems: 'center',
     },
-    greeting: {
-      height: 100,
-      width: 200,
-      borderWidth: 1,
-      borderColor: '#657b83',
-      margin: 16,
-      justifyContent: 'center',
-      alignItems: 'center',
+    button: {
+      backgroundColor: config?.primaryColor,
+      color: 'white',
+      padding: 10,
+      borderRadius: 10,
+      marginBottom: 10,
     },
-    greetingText: {
-      color: config.primaryTextColor,
+    buttonLabel: {
+      color: 'white',
+      fontWeight: '600',
     },
   });

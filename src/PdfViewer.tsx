@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import Pdf from 'react-native-pdf';
 import RNPrint from 'react-native-print';
-import { pdfBase64 } from './source';
+import { ParamListBase } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 const styles = StyleSheet.create({
   container: {
@@ -43,46 +44,53 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function WebviewScreen() {
+export default function WebviewScreen({
+  route,
+}: NativeStackScreenProps<ParamListBase>) {
   const [loaded, setLoaded] = React.useState<boolean>(false);
+  const [uri, setUri] = React.useState<string | null>(null);
   const [pdfFilePath, setPdfFilePath] = React.useState<string>('');
 
   async function print() {
-    console.log('print', pdfFilePath);
     await RNPrint.print({ filePath: pdfFilePath });
   }
 
+  React.useEffect(() => {
+    // @ts-ignore
+    const { source } = route.params;
+    setUri(source);
+  }, [route]);
+
   return (
     <SafeAreaView style={styles.container}>
-      <Pdf
-        source={{
-          uri: `data:application/pdf;base64,${pdfBase64}`,
-          cacheFileName: 'document',
-        }}
-        onLoadComplete={async (numberOfPages: number, filePath: string) => {
-          console.log(`Number of pages: ${numberOfPages}`);
-          console.log('filePath', filePath);
-          setPdfFilePath(filePath);
-          setLoaded(true);
-        }}
-        onPageChanged={(page: number, numberOfPages: number) => {
-          console.log(`Current page: ${page}`);
-          console.log(`Number of pages: ${numberOfPages}`);
-        }}
-        onError={(error: unknown) => {
-          console.log(error);
-        }}
-        onPressLink={(uri: string) => {
-          console.log(`Link pressed: ${uri}`);
-        }}
-        style={styles.pdf}
-      />
+      {uri && (
+        <Pdf
+          source={{
+            uri,
+            cacheFileName: 'document',
+          }}
+          onLoadComplete={async (numberOfPages: number, filePath: string) => {
+            console.log(`Number of pages: ${numberOfPages}`);
+            console.log('filePath', filePath);
+            setPdfFilePath(filePath);
+            setLoaded(true);
+          }}
+          onPageChanged={(page: number, numberOfPages: number) => {
+            console.log(`Current page: ${page}`);
+            console.log(`Number of pages: ${numberOfPages}`);
+          }}
+          onError={(error: unknown) => {
+            console.log(error);
+          }}
+          style={styles.pdf}
+        />
+      )}
       {loaded && (
         <TouchableOpacity style={styles.printButton} onPress={print}>
           <Text style={styles.printButtonLabel}>Print / Save</Text>
         </TouchableOpacity>
       )}
-      {!loaded && (
+      {(!loaded || !uri) && (
         <View style={styles.spinnerContainer}>
           <ActivityIndicator size="large" />
         </View>

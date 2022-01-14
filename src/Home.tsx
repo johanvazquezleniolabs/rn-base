@@ -74,7 +74,7 @@ function Home({ navigation }: NativeStackScreenProps<ParamListBase>) {
           }>
           <Text style={styles?.buttonLabel}>Xls file</Text>
         </TouchableOpacity>
-        <Text style={styles?.subTitle}>PDF Viwer with react-native-pdf</Text>
+        <Text style={styles?.subTitle}>PDF Viewer with react-native-pdf</Text>
         <TouchableOpacity
           style={styles?.button}
           onPress={() =>
